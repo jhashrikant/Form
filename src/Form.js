@@ -44,9 +44,7 @@ const Form = () => {
         if (nameA > nameB) {
             return 1;
         }
-
-        // names must be equal
-        return 0;
+        return a.age -b.age
     });
 
     console.log(sortedArray)
