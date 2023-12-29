@@ -1,0 +1,72 @@
+.formContainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 50px auto;
+    max-width: 300px;
+    /* background: rgb(135, 135, 157); */
+}
+
+.name{
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.age{
+    display: flex;
+    margin: 20px;
+    /* align-items: center; */
+    justify-content: space-between;
+}
+
+.gender{
+    display: flex;
+    margin: 20px;
+    /* align-items: center; */
+    /* justify-content: center; */
+    justify-content: space-between;
+}
+
+.genderContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.InterestContainer{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
+
+.Interest{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px; 
+}
+
+.photo{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.btnContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn{
+    background-color: rgb(78, 78, 213);
+    padding: 5px 12px;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.input{
+    padding: 7px 3px;
+}
