@@ -19,7 +19,7 @@ const Form = () => {
         // Fetch user data from  backend
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:5050/getuser');
+                const response = await axios.get('https://formserver-omega.vercel.app/getuser');
                 const data = response?.data?.response
                 console.log(response.data.response)
                 setusers(data)
@@ -87,7 +87,7 @@ const Form = () => {
         if (editing) {
             // Handle update logic for an existing entry
             try {
-                const response = await axios.put(`http://localhost:5050/user/${Editingvalue._id}`, {
+                const response = await axios.put(`https://formserver-omega.vercel.app/user/${Editingvalue._id}`, {
                     name,
                     age,
                     Gender: gender,
@@ -98,7 +98,7 @@ const Form = () => {
                 if (response.data.res) {
                     console.log('Data updated successfully');
                     // Fetch updated user data after update
-                    const updatedResponse = await axios.get('http://localhost:5050/getuser');
+                    const updatedResponse = await axios.get('https://formserver-omega.vercel.app/getuser');
                     const updatedData = updatedResponse?.data?.response;
                     setusers(updatedData);
                 } else {
@@ -117,7 +117,7 @@ const Form = () => {
         } else {
             // Handle logic for a new entry
             try {
-                const response = await axios.post('http://localhost:5050/user', {
+                const response = await axios.post('https://formserver-omega.vercel.app/user', {
                     name: name,
                     age: age,
                     Gender: gender,
@@ -128,7 +128,7 @@ const Form = () => {
                 if (response.data.res) {
                     console.log('Data sent successfully');
                     // Fetch updated user data after creating a new entry
-                    const updatedResponse = await axios.get('http://localhost:5050/getuser');
+                    const updatedResponse = await axios.get('https://formserver-omega.vercel.app/getuser');
                     const updatedData = updatedResponse?.data?.response;
                     setusers(updatedData);
                 } else {
