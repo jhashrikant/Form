@@ -3,6 +3,8 @@ import styles from './Form.module.css'
 import axios from 'axios'
 const Form = () => {
 
+    const apiUrl = "https://formserver-omega.vercel.app"
+
     const [name, setname] = useState('')
     const [age, setAge] = useState('')
     const [gender, setgender] = useState('')
@@ -19,7 +21,7 @@ const Form = () => {
         // Fetch user data from  backend
         const fetchData = async () => {
             try {
-                const response = await axios.get('https://formserver-omega.vercel.app/getuser');
+                const response = await axios.get(`${apiUrl}/getuser`);
                 const data = response?.data?.response
                 console.log(response.data.response)
                 setusers(data)
@@ -87,7 +89,7 @@ const Form = () => {
         if (editing) {
             // Handle update logic for an existing entry
             try {
-                const response = await axios.put(`https://formserver-omega.vercel.app/user/${Editingvalue._id}`, {
+                const response = await axios.put(`${apiUrl}/user/${Editingvalue._id}`, {
                     name,
                     age,
                     Gender: gender,
@@ -98,7 +100,7 @@ const Form = () => {
                 if (response.data.res) {
                     console.log('Data updated successfully');
                     // Fetch updated user data after update
-                    const updatedResponse = await axios.get('https://formserver-omega.vercel.app/getuser');
+                    const updatedResponse = await axios.get(`${apiUrl}/getuser`);
                     const updatedData = updatedResponse?.data?.response;
                     setusers(updatedData);
                 } else {
@@ -117,7 +119,7 @@ const Form = () => {
         } else {
             // Handle logic for a new entry
             try {
-                const response = await axios.post('https://formserver-omega.vercel.app/user', {
+                const response = await axios.post(`${apiUrl}/user`, {
                     name: name,
                     age: age,
                     Gender: gender,
@@ -128,7 +130,7 @@ const Form = () => {
                 if (response.data.res) {
                     console.log('Data sent successfully');
                     // Fetch updated user data after creating a new entry
-                    const updatedResponse = await axios.get('https://formserver-omega.vercel.app/getuser');
+                    const updatedResponse = await axios.get(`${apiUrl}/getuser`);
                     const updatedData = updatedResponse?.data?.response;
                     setusers(updatedData);
                 } else {
@@ -153,7 +155,7 @@ const Form = () => {
                     {/* name */}
                     <div className={styles.name}>
                         <label htmlFor="name">Name: </label>
-                        <input className={styles.input}  type="text" id="name" name="name" value={name} onChange={(event) =>  setname(event.target.value.replace(/[^A-Za-z]/g, ''))} placeholder='John Doe' />
+                        <input className={styles.input} type="text" id="name" name="name" value={name} onChange={(event) => setname(event.target.value.replace(/[^A-Za-z]/g, ''))} placeholder='John Doe' />
                     </div>
 
                     {/* age */}
